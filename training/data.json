@@ -1,0 +1,83 @@
+{
+  "descripcion": "Ejemplos completamente sintéticos para un prototipo académico; NO son mensajes de pacientes reales.",
+  "ejemplos": {
+    "saludo": [
+      "hola", "hola buenos días", "buenas tardes", "buenas noches", "qué tal", "buen día",
+      "hola necesito informes", "hola buenas", "me pueden ayudar", "hola clínica nakashima",
+      "disculpe buen día", "buenas, quisiera información", "saludos", "hola a todos",
+      "hola quisiera consultar", "qué onda, buenas", "muy buenos días", "tengo una pregunta",
+      "hola, hay alguien ahí", "me gustaría pedir información", "hola equipo", "buenas tardes equipo"
+    ],
+    "horarios": [
+      "qué horarios tienen", "a qué hora abren", "a qué hora cierran", "abren los sábados",
+      "cuál es el horario de atención", "trabajan los lunes", "están abiertos mañana",
+      "qué días atienden", "me dicen su horario", "hay consultas en la mañana",
+      "horarios de la clínica", "atienden por la tarde", "hasta qué hora están",
+      "qué horario maneja la clínica", "tienen horario de fin de semana",
+      "qué días dan consulta", "en qué horarios puedo ir", "abren el domingo",
+      "horario del consultorio", "atienden después de las seis",
+      "quiero saber la hora de apertura", "a qué hora empieza la atención"
+    ],
+    "ubicacion": [
+      "dónde están ubicados", "dónde queda la clínica", "me comparten la dirección",
+      "cómo llego al consultorio", "cuál es la ubicación", "en qué colonia están",
+      "tienen sucursal en ciudad de méxico", "tienen consultorio en guadalajara",
+      "cuál es la dirección en cdmx", "me mandan la localización",
+      "ubicación de la sucursal", "en dónde se encuentran",
+      "están cerca del metro zapata", "cómo puedo llegar desde el metro",
+      "me envían el domicilio", "dónde los encuentro", "dirección de nakashima",
+      "se encuentran en la ciudad de méxico", "su clínica está en guadalajara",
+      "en qué zona está el consultorio", "pueden pasarme la dirección",
+      "tienen más de una sucursal"
+    ],
+    "servicios": [
+      "qué tratamientos ofrecen", "qué servicios dentales manejan", "hacen blanqueamiento dental",
+      "ponen carillas", "ofrecen alineadores", "tienen limpieza dental",
+      "qué tipo de carillas trabajan", "qué servicios estéticos tienen",
+      "hacen diseño de sonrisa", "quiero informes sobre carillas de resina",
+      "ofrecen carillas de cerámica", "hacen blanqueamientos", "manejan odontología estética",
+      "quiero conocer sus tratamientos", "qué opciones de servicios tienen",
+      "puedo solicitar limpieza dental", "trabajan con carillas de porcelana",
+      "tienen servicio de valoración", "qué trabajos realizan", "qué puedo hacerme en la clínica",
+      "me interesan los alineadores transparentes", "prestan servicios de estética dental"
+    ],
+    "costos": [
+      "cuánto cuesta la valoración", "qué precio tiene el blanqueamiento",
+      "me pueden dar una cotización", "cuánto cuestan las carillas", "cuáles son sus precios",
+      "cuál es el costo del tratamiento", "hay paquetes de carillas",
+      "me pueden mandar la lista de precios", "informes de costo",
+      "qué costo tiene la limpieza", "cuánto cobran por los alineadores",
+      "el precio incluye la consulta", "qué formas de pago aceptan",
+      "tienen meses sin intereses", "pueden darme un presupuesto",
+      "a cuánto sale la resina", "cuánto se paga por una carilla",
+      "es costoso el diseño de sonrisa", "precio de una valoración",
+      "quiero comparar costos", "tienen promociones disponibles",
+      "qué pagos aceptan en el consultorio"
+    ],
+    "cita": [
+      "quiero agendar una cita", "cómo puedo reservar", "tienen citas para mañana",
+      "quiero apartar un horario", "necesito programar una valoración",
+      "me gustaría hacer una cita", "puedo agendar para el sábado",
+      "cómo reservo consulta", "quiero reservar una consulta", "puedo solicitar cita",
+      "me dan una cita", "tienen espacios disponibles", "quiero cambiar mi cita",
+      "quiero confirmar una cita", "cuál es el proceso para agendar",
+      "puedo apartar fecha", "quiero acudir a una valoración",
+      "me ayudan con la agenda", "necesito una cita esta semana",
+      "quiero cancelar mi cita", "cómo hago una reservación",
+      "quiero una consulta presencial"
+    ],
+    "consulta_clinica": [
+      "tengo dolor de muela qué hago", "me sangran las encías", "necesito un diagnóstico",
+      "qué medicamento puedo tomar", "me duele mucho un diente",
+      "se me inflamó la encía", "tengo una infección dental",
+      "cuál es la dosis del antibiótico", "me golpeé un diente",
+      "tengo fiebre y dolor de muelas", "me duele al masticar",
+      "mis encías están inflamadas", "quiero que me recomienden una medicina",
+      "qué tratamiento necesito para el dolor", "puedo tomar ibuprofeno",
+      "me urge atención por sangrado", "tengo pus en la encía",
+      "se me rompió un diente y duele", "me salieron llagas en la boca",
+      "quiero saber si tengo caries", "qué hago con una muela infectada",
+      "pueden revisar una radiografía para diagnosticar"
+    ]
+  }
+}

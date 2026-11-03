@@ -1,0 +1,37 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-9.0.2, pluggy-1.6.0 -- /opt/pyvenv/bin/python
+cachedir: .pytest_cache
+metadata: {'Python': '3.13.5', 'Platform': 'Linux-6.18.57-x86_64-with-glibc2.41', 'Packages': {'pytest': '9.0.2', 'pluggy': '1.6.0'}, 'Plugins': {'anyio': '4.13.0', 'ddtrace': '4.4.0', 'Faker': '40.1.2', 'asyncio': '1.3.0', 'cov': '7.0.0', 'json-report': '1.5.0', 'metadata': '3.1.1'}, 'PLATFORM': 'linux/amd64', 'CI': 'true'}
+rootdir: /mnt/data/fase2_nakashima
+plugins: anyio-4.13.0, ddtrace-4.4.0, Faker-40.1.2, asyncio-1.3.0, cov-7.0.0, json-report-1.5.0, metadata-3.1.1
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 20 items
+
+tests/test_api.py::test_health PASSED                                    [  5%]
+tests/test_api.py::test_frontend_visible PASSED                          [ 10%]
+tests/test_api.py::test_intenciones_administrativas[\xbfA qu\xe9 hora abren?-horarios] PASSED [ 15%]
+tests/test_api.py::test_intenciones_administrativas[\xbfD\xf3nde queda el consultorio?-ubicacion] PASSED [ 20%]
+tests/test_api.py::test_intenciones_administrativas[\xbfQu\xe9 tratamientos ofrecen?-servicios] PASSED [ 25%]
+tests/test_api.py::test_intenciones_administrativas[\xbfCu\xe1nto cuesta la valoraci\xf3n?-costos] PASSED [ 30%]
+tests/test_api.py::test_intenciones_administrativas[Quiero agendar una cita-cita] PASSED [ 35%]
+tests/test_api.py::test_consulta_clinica_derivada PASSED                 [ 40%]
+tests/test_api.py::test_cita_con_dolor_prioriza_seguridad PASSED         [ 45%]
+tests/test_api.py::test_errores_entrada[payload0] PASSED                 [ 50%]
+tests/test_api.py::test_errores_entrada[payload1] PASSED                 [ 55%]
+tests/test_api.py::test_errores_entrada[payload2] PASSED                 [ 60%]
+tests/test_api.py::test_errores_entrada[payload3] PASSED                 [ 65%]
+tests/test_api.py::test_no_repite_entrada_clinica PASSED                 [ 70%]
+tests/test_api.py::test_payload_html_no_reflejado PASSED                 [ 75%]
+tests/test_api.py::test_out_of_domain_muestra_rechazo_o_clasificacion PASSED [ 80%]
+tests/test_api.py::test_limite_500_caracteres_permitido PASSED           [ 85%]
+tests/test_api.py::test_emojis_sin_error PASSED                          [ 90%]
+tests/test_training.py::test_artefacto_entrenado PASSED                  [ 95%]
+tests/test_training.py::test_metricas_y_particion PASSED                 [100%]
+
+============================== 20 passed in 1.04s ==============================
+GET /: HTTP 200
+GET /health: HTTP 200
+POST /api/consultar | ¿Qué horarios tienen? => horarios (clasificador_ml)
+POST /api/consultar | Quiero agendar una cita => cita (clasificador_ml)
+POST /api/consultar | Tengo dolor de muela => consulta_clinica (regla_seguridad)
+Smoke tests completados correctamente.

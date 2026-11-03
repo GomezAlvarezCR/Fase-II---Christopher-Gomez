@@ -1,0 +1,26 @@
+PROYECTO FASE II - CLINICA NAKASHIMA
+
+1) Abrir GUIA_ENTREGA.md: explica exactamente qué capturas tomar.
+2) Instalar y abrir Docker Desktop. Abrir PowerShell en esta carpeta.
+3) Ejecutar:
+     docker build -t nakashima-fase2:1.0 .
+     docker run --rm -d --name nakashima-ia -p 8000:8000 nakashima-fase2:1.0
+     docker ps
+4) Abrir http://localhost:8000, http://localhost:8000/health y
+   http://localhost:8000/docs. Probar una pregunta de horarios y otra clínica.
+5) Tomar capturas reales y guardarlas en evidencias/.
+6) Ejecutar las pruebas Python con Python 3.11:
+     py -3.11 -m venv .venv
+     .venv\Scripts\python.exe -m pip install -r requirements-dev.txt
+     .venv\Scripts\python.exe -m pytest -v
+7) Subir el contenido de esta carpeta a un repositorio GitHub nuevo.
+8) Agregar URL del repositorio y capturas al reporte editable de docs/.
+9) Exportar el reporte completado a PDF y entregar segun indique el campus.
+
+IMPORTANTE: Este paquete contiene una configuracion Docker no validada
+fisicamente en tu Windows. Las pruebas Python si se ejecutaron en este entorno:
+20 pruebas aprobadas. Dataset de ejemplo sintetico; no utilizar en pacientes.
+
+Si el puerto 8000 esta ocupado, primero liberar el servicio que lo usa,
+o reemplazar -p 8000:8000 por -p 8001:8000 y abrir localhost:8001.
+Para detener: docker stop nakashima-ia

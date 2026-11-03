@@ -1,0 +1,143 @@
+{
+  "nota": "Evaluación interna de datos sintéticos; NO demuestra eficacia clínica ni generalización a pacientes reales.",
+  "algoritmo": "TF-IDF caracteres (2-5) + LogisticRegression",
+  "baseline_mayoria_accuracy": 0.1282,
+  "baseline_mayoria_f1_macro": 0.0325,
+  "random_state": 42,
+  "ejemplos_totales": 154,
+  "ejemplos_entrenamiento": 115,
+  "ejemplos_prueba": 39,
+  "accuracy": 0.8462,
+  "f1_macro": 0.8429,
+  "etiquetas": [
+    "cita",
+    "consulta_clinica",
+    "costos",
+    "horarios",
+    "saludo",
+    "servicios",
+    "ubicacion"
+  ],
+  "matriz_confusion": [
+    [
+      5,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      5,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      4,
+      0,
+      0,
+      2,
+      0
+    ],
+    [
+      1,
+      1,
+      0,
+      4,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      1,
+      0,
+      0,
+      4,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      5,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      6
+    ]
+  ],
+  "reporte_por_clase": {
+    "cita": {
+      "precision": 0.7142857142857143,
+      "recall": 1.0,
+      "f1-score": 0.8333333333333334,
+      "support": 5.0
+    },
+    "consulta_clinica": {
+      "precision": 0.7142857142857143,
+      "recall": 1.0,
+      "f1-score": 0.8333333333333334,
+      "support": 5.0
+    },
+    "costos": {
+      "precision": 1.0,
+      "recall": 0.6666666666666666,
+      "f1-score": 0.8,
+      "support": 6.0
+    },
+    "horarios": {
+      "precision": 1.0,
+      "recall": 0.6666666666666666,
+      "f1-score": 0.8,
+      "support": 6.0
+    },
+    "saludo": {
+      "precision": 1.0,
+      "recall": 0.6666666666666666,
+      "f1-score": 0.8,
+      "support": 6.0
+    },
+    "servicios": {
+      "precision": 0.7142857142857143,
+      "recall": 1.0,
+      "f1-score": 0.8333333333333334,
+      "support": 5.0
+    },
+    "ubicacion": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 6.0
+    },
+    "accuracy": 0.8461538461538461,
+    "macro avg": {
+      "precision": 0.8775510204081634,
+      "recall": 0.8571428571428571,
+      "f1-score": 0.8428571428571427,
+      "support": 39.0
+    },
+    "weighted avg": {
+      "precision": 0.8901098901098902,
+      "recall": 0.8461538461538461,
+      "f1-score": 0.8435897435897437,
+      "support": 39.0
+    }
+  }
+}

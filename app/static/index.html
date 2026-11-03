@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clínica Nakashima · Asistente IA</title>
+  <style>
+    :root { --blue: #217bb6; --sky:#eaf6ff; --ink:#1e3b51; --muted:#667b8c; --line:#d8e8f1; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:#f4f8fb; color:var(--ink); font-family:system-ui,-apple-system,Segoe UI,sans-serif; }
+    .shell { max-width:860px; margin:36px auto; padding:0 18px; }
+    .top { display:flex; justify-content:space-between; align-items:center; gap:15px; margin-bottom:18px; }
+    .brand { font-size:26px; letter-spacing:-.5px; font-weight:750; }
+    .brand b { color:var(--blue); }
+    .tag { background:#d6f0e9; padding:6px 10px; border-radius:20px; color:#176754; font-size:12px; font-weight:600; }
+    .panel { background:white; border:1px solid var(--line); border-radius:20px; box-shadow:0 12px 35px #18435b13; overflow:hidden; }
+    .panel-head { background:var(--sky); padding:22px 25px; border-bottom:1px solid var(--line); }
+    h1 { font-size:21px; margin:0 0 6px; } .panel-head p { margin:0; color:var(--muted); line-height:1.5; }
+    #messages { min-height:290px; height:380px; overflow-y:auto; padding:24px; display:flex; flex-direction:column; gap:12px; }
+    .bubble { max-width:88%; border-radius:17px; line-height:1.55; padding:13px 17px; font-size:15px; white-space:pre-wrap; }
+    .bot { align-self:flex-start; background:#eff5f9; } .user { align-self:flex-end; background:var(--blue); color:white; }
+    .diagnostic { font-size:12px; color:var(--muted); align-self:flex-start; margin:-6px 0 3px 6px; }
+    .samples { display:flex; gap:7px; flex-wrap:wrap; padding:0 24px 14px; }
+    .sample { border:1px solid var(--line); color:var(--blue); background:white; border-radius:20px; padding:8px 11px; cursor:pointer; }
+    .form { display:flex; gap:9px; padding:18px 24px; border-top:1px solid var(--line); }
+    #message { flex:1; border:1px solid #b9d1e0; border-radius:11px; padding:13px; font:inherit; min-width:0; }
+    #send { background:var(--blue); color:white; border:0; border-radius:11px; padding:12px 22px; font-weight:700; cursor:pointer; }
+    #send:disabled { opacity:.5; cursor:wait; }
+    footer { color:var(--muted); font-size:12px; margin:16px 4px; line-height:1.6; }
+    @media(max-width:540px){.shell{margin:15px auto}.brand{font-size:21px}.panel-head,#messages,.form{padding:16px}.samples{padding:0 16px 12px}.bubble{max-width:95%}.top{flex-wrap:wrap}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="top"><div class="brand">Clínica <b>Nakashima</b></div><span class="tag">PROTOTIPO ACADÉMICO · FASE II</span></header>
+    <section class="panel">
+      <div class="panel-head"><h1>Asistente de información administrativa</h1><p>Pregúntame sobre horarios, ubicaciones, servicios y solicitudes de cita.</p></div>
+      <div id="messages" aria-live="polite"></div>
+      <div class="samples">
+        <button class="sample" type="button">¿Cuáles son sus horarios?</button>
+        <button class="sample" type="button">Quiero agendar una cita</button>
+        <button class="sample" type="button">¿Ofrecen carillas?</button>
+        <button class="sample" type="button">Tengo dolor de muela</button>
+      </div>
+      <form id="form" class="form">
+        <input id="message" maxlength="500" autocomplete="off" aria-label="Tu consulta" placeholder="Escribe una consulta sin datos personales..." required>
+        <button id="send" type="submit">Enviar</button>
+      </form>
+    </section>
+    <footer>Demostración con mensajes sintéticos. No recopila ni almacena consultas; no ingresar nombres, teléfonos, expedientes o información clínica. Las citas requieren confirmación humana. No proporciona diagnósticos ni tratamientos.</footer>
+  </main>
+  <script>
+    const messages=document.querySelector('#messages');
+    const field=document.querySelector('#message');
+    const send=document.querySelector('#send');
+    function bubble(text,who,details){
+      const node=document.createElement('div');
+      node.className='bubble '+who;
+      node.textContent=text; // textContent evita interpretar HTML del mensaje
+      messages.appendChild(node);
+      if(details){const small=document.createElement('div');small.className='diagnostic';small.textContent=details;messages.appendChild(small);}
+      messages.scrollTop=messages.scrollHeight;
+    }
+    bubble('¡Hola! Soy el asistente administrativo de demostración. ¿Qué información necesitas?', 'bot');
+    document.querySelectorAll('.sample').forEach(el=>el.addEventListener('click',()=>{field.value=el.textContent;field.focus();}));
+    document.querySelector('#form').addEventListener('submit',async event=>{
+      event.preventDefault();const message=field.value.trim();if(!message)return;
+      bubble(message,'user');field.value='';send.disabled=true;
+      try{
+        const response=await fetch('/api/consultar',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({mensaje:message})});
+        if(!response.ok)throw new Error('HTTP '+response.status);
+        const data=await response.json();
+        bubble(data.respuesta,'bot',`Categoría: ${data.categoria} · Método: ${data.metodo} · ${data.confianza === null ? 'Regla de seguridad' : 'Confianza: '+(data.confianza*100).toFixed(1)+'%'}${data.requiere_humano ? ' · Requiere atención humana' : ''}`);
+      }catch(err){bubble('No pude procesar la consulta. Contacta al personal de la clínica.','bot');}
+      finally{send.disabled=false;field.focus();}
+    });
+  </script>
+</body>
+</html>
